@@ -23,38 +23,94 @@ public class ListaUtil {
     }
 
     public void remove(Integer value) {
-        if(Objects.nonNull(null)) {
+        if(!Objects.nonNull(null)) {
             this.inteiros.remove(value);
         }
     }
 
     public Integer countPares() {
-        return null;
+        Integer pares = 0;
+        
+        for (Integer i : this.inteiros) {
+            if (i % 2 == 0) {
+                pares++;
+            }
+        }
+
+        return pares;
     }
 
     public Integer countImpares() {
-        return null;
+        Integer impares = 0;
+        
+        for (Integer i : this.inteiros) {
+            if (i % 2 != 0) {
+                impares++;
+            }
+        }
+
+        return impares;
     }
 
     public Integer somar() {
-        return null;
+        Integer soma = 0;
+
+        for (Integer i : this.inteiros) {
+            soma += i;
+        }
+
+        return soma;
     }
 
     public Integer getMaior() {
-        return null;
+        Integer max;
+
+        if (this.inteiros.size() == 0) {
+            return 0;
+        } else {
+            max = Integer.MIN_VALUE;
+
+            for (Integer i : this.inteiros) {
+                if (i > max) {
+                    max = i;
+                }
+            }
+    
+            return max;
+        }
+
     }
 
     public Integer getMenor() {
-        Integer min = Integer.MAX_VALUE;
-        for (Integer integer : inteiros) {
-            if (integer < min) {
-                min = integer;
+
+        if (this.inteiros.size() == 0) {
+            return 0;
+        } else {
+            Integer min = Integer.MAX_VALUE;
+
+            for (Integer i : this.inteiros) {
+                if (i < min) {
+                    min = i;
+                }
             }
+
+            return min;
         }
-        return min;
+
     }
 
     public Boolean hasDuplicidade() {
-        return null;
+        
+        Boolean has = false;
+
+        for (Integer i = 0; i < this.inteiros.size(); i++) {
+            for (Integer j = 0; j < this.inteiros.size(); j++) {
+                if (i != j && this.inteiros.get(i) == this.inteiros.get(j)) {
+                    has = true;
+                }
+            }
+        }
+
+        return has;
     }
 }

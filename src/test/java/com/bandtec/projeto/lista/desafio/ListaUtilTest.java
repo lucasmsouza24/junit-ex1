@@ -48,6 +48,7 @@ public class ListaUtilTest {
         instance.add(40);
         assertEquals(3, instance.count());
         instance.remove(10);
+        System.out.println(instance.count());
         assertEquals(2, instance.count());
     }
     
