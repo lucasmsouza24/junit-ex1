@@ -2,7 +2,9 @@ package com.bandtec.projeto.lista.desafio;
 
 import java.util.List;
 import java.util.Objects;
+import java.util.Set;
 import java.util.ArrayList;
+import java.util.HashSet;
 
 public class ListaUtil {
 
@@ -23,14 +25,14 @@ public class ListaUtil {
     }
 
     public void remove(Integer value) {
-        if(!Objects.nonNull(null)) {
+        if (!Objects.nonNull(null)) {
             this.inteiros.remove(value);
         }
     }
 
     public Integer countPares() {
         Integer pares = 0;
-        
+
         for (Integer i : this.inteiros) {
             if (i % 2 == 0) {
                 pares++;
@@ -42,7 +44,7 @@ public class ListaUtil {
 
     public Integer countImpares() {
         Integer impares = 0;
-        
+
         for (Integer i : this.inteiros) {
             if (i % 2 != 0) {
                 impares++;
@@ -75,7 +77,7 @@ public class ListaUtil {
                     max = i;
                 }
             }
-    
+
             return max;
         }
 
@@ -100,17 +102,28 @@ public class ListaUtil {
     }
 
     public Boolean hasDuplicidade() {
-        
+
         Boolean has = false;
 
-        for (Integer i = 0; i < this.inteiros.size(); i++) {
-            for (Integer j = 0; j < this.inteiros.size(); j++) {
-                if (i != j && this.inteiros.get(i) == this.inteiros.get(j)) {
-                    has = true;
-                }
+        // fazendo o básico
+        // for (int i = 0; i < this.inteiros.size(); i++) {
+        //     for (int j = 0; j < this.inteiros.size(); j++) {
+        //         if (i != j && this.inteiros.get(i) == this.inteiros.get(j)) {
+        //             has = true;
+        //         }
+        //     }
+        // }
+
+        // Matando mosca com bazuca
+        Set<Integer> set = new HashSet<>();
+
+        for (int i : this.inteiros) {
+            has = set.add(i);
+            if (!has) {
+                return true;
             }
         }
+        return false;
 
-        return has;
     }
 }
